@@ -43,7 +43,7 @@ const MusicSticker = React.forwardRef<HTMLDivElement, MusicStickerProps>(
           )}
           
           {/* Equalizer Bars */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-end gap-1">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1">
             <div 
               className="w-1.5 rounded-full bg-white"
               style={{ 
