@@ -12,19 +12,17 @@ const MusicSticker = React.forwardRef<HTMLDivElement, MusicStickerProps>(
     return (
       <div
         ref={ref}
-        className="inline-flex items-center gap-3 px-3 py-2 rounded-2xl"
+        className="inline-flex items-center gap-4 px-3 py-3 rounded-lg"
         style={{
-          background: "rgba(40, 40, 40, 0.85)",
-          backdropFilter: "blur(20px)",
-          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
+          background: "#ffffff",
+          boxShadow: "0 2px 12px rgba(0, 0, 0, 0.08)",
         }}
       >
-        {/* Album Art */}
+        {/* Album Art with Equalizer Bars */}
         <div 
-          className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 relative"
+          className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 relative"
           style={{
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
           }}
         >
           {coverArt ? (
@@ -37,38 +35,59 @@ const MusicSticker = React.forwardRef<HTMLDivElement, MusicStickerProps>(
             <div 
               className="w-full h-full flex items-center justify-center"
               style={{
-                background: "linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)",
+                background: "linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%)",
               }}
             >
-              <Music className="w-6 h-6 text-white/80" />
+              <Music className="w-8 h-8 text-gray-400" />
             </div>
           )}
+          
+          {/* Equalizer Bars */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-end gap-1">
+            <div 
+              className="w-1.5 rounded-full bg-white"
+              style={{ 
+                height: "20px",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+              }}
+            />
+            <div 
+              className="w-1.5 rounded-full bg-white"
+              style={{ 
+                height: "28px",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+              }}
+            />
+            <div 
+              className="w-1.5 rounded-full bg-white"
+              style={{ 
+                height: "16px",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+              }}
+            />
+          </div>
         </div>
 
         {/* Song Info */}
-        <div className="flex flex-col min-w-0 pr-2">
+        <div className="flex flex-col min-w-0 pr-4">
           <span 
-            className="text-sm font-semibold truncate max-w-[160px]"
-            style={{ color: "rgba(255, 255, 255, 0.95)" }}
+            className="text-xl font-bold truncate max-w-[200px]"
+            style={{ 
+              color: "#000000",
+              fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            }}
           >
             {songTitle || "Song Title"}
           </span>
           <span 
-            className="text-xs truncate max-w-[160px]"
-            style={{ color: "rgba(255, 255, 255, 0.6)" }}
+            className="text-lg truncate max-w-[200px]"
+            style={{ 
+              color: "#666666",
+              fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            }}
           >
             {performer || "Artist Name"}
           </span>
-        </div>
-
-        {/* Music Icon */}
-        <div 
-          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
-          style={{
-            background: "linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)",
-          }}
-        >
-          <Music className="w-4 h-4 text-white" />
         </div>
       </div>
     );
